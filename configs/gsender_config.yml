@@ -1,0 +1,26 @@
+process:
+  pidfilepath: /usr/local/gsender/bin
+  pidfilename: gsender.pid
+
+log:
+  filepath: /usr/local/gsender/log
+  filename: gsender.log
+  level: 0
+  maxsize: 10
+
+targets:
+    - myapplog:
+      sourcedir: /app/log
+      renameDir: /app/log/bak
+      fileregexp: app.log-[0-9]{10}.gz
+      remotehost: 127.0.0.1
+      remoteport: 21
+      remotedir: logs
+      ftpuser: testuser
+      ftppasswd: testpassword
+      remove: false
+      mkdirByIP: true
+      interval: 60
+
+app:
+  realinf: lo
